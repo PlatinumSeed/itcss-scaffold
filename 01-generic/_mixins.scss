@@ -1,0 +1,103 @@
+/* ::Layout helpers */
+/* ----------------------------------------------------------- */
+
+@mixin verticle-center($height, $offset: 0) {
+	height: $height;
+	margin-top: (-$height / 2) + $offset;
+	top: 50%;
+}
+
+@mixin horizontal-center($width) {
+	width: $width;
+	margin-left: -$width / 2;
+	left: 50%;
+}
+
+
+@mixin line {
+	display: inline-block;
+	width: vw($hamburger-width);
+	height: vw($hamburger-lineheight);
+	background: $hamburger-color;
+	transition: $transition-duration all ease;
+	vertical-align: middle;
+
+	@include breakpoint($medium) {
+		width: $hamburger-width;
+		height: $hamburger-lineheight;
+	}
+}
+
+
+/* ::Placeholder styling mixin */
+/* ----------------------------------------------------------- */
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+
+/* ::Advanced typography settings */
+/* ----------------------------------------------------------- */
+
+// Get advanced with type if needed for ligatures etc...
+
+@mixin advancedtype {
+	//font-variant-ligatures: contextual;  				// Set the default for ligatures
+	//-moz-font-feature-settings: "liga=1,dlig=1";    	// Ligature settings for mozilla
+	font-kerning: normal; 								// Set the default for kerning
+	-webkit-font-smoothing: antialiased; 				// Improve (or in some cases royally screw with) safari's legibility somewhat
+	//font-synthesis: none; 							// Don't allow the font to create sythetic bold/italic
+	//text-rendering: optimizeLegibility; 				// Improve kerning pairs. Webkit gets funny with this sometimes
+}
+
+/* ::Measurement Conversions */
+/* ----------------------------------------------------------- */
+
+@function emify($target, $context) {
+   @if $target == 0 { @return 0 }
+   @return $target / $context + 0em;
+}
+
+// Make px to ems using base-font-size
+// echo as: font-size: em-font(#px);
+
+@function em-font($target, $context: $base-font-size) {
+   @return emify($target, $context);
+}
+
+@function em-base($target, $context: $base-line-height) {
+   @return emify($target, $context);
+}
+
+@function vw($size, $width: 640px) {
+	@return ($size / $width) * 100 + vw;
+}
+
+@mixin font($size, $line-height) {
+    font-size: em-font($size);
+    line-height: em-font($line-height, $size);
+}
+
+//Convert Photoshop letter spacing to CSSs
+@function ps-letterspacing($size) {
+	@return $size / 1000 + em;
+}
+
+/* ::Some Stuff from compass */
+/* ----------------------------------------------------------- */
+@mixin clearfix {
+  overflow: hidden;
+}
+
+@mixin pie-clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

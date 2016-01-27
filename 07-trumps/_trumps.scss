@@ -1,0 +1,130 @@
+/* ::Clearfixs and extends. Use which suits best */
+/* ----------------------------------------------------------- */
+
+// Use clearfix if you need general clearfixing
+.t-clearfix 			{
+    @include clearfix;
+}
+
+// Use pie-clearfix if you need clearfixing that doesn't use overflow: hidden
+.t-pie_clearfix 		{
+    @include pie-clearfix;
+}
+
+.t-clearfix_old {
+    clear: both;
+}
+
+.t-center_text {
+    text-align: center;
+}
+
+.t-noscroll {
+    position: fixed;
+    overflow-y: scroll;
+}
+
+/* ::Layout Related  */
+/* ----------------------------------------------------------- */
+.t-max_width 			{
+    max-width: 100%; height: auto;
+}
+
+.t-center_image {
+    display: block;
+    margin: 0 auto;
+}
+
+.t-first {
+    margin-left: 0;
+}
+
+.t-first_column {
+    @include first;
+}
+
+.t-last {
+    margin-right: 0;
+}
+
+.t-last_column {
+    @include last;
+}
+
+.t-float_left {
+    float: left;
+}
+
+.t-float_right {
+    float: right;
+}
+
+/* ::Display related  */
+/* ----------------------------------------------------------- */
+.t-hidden {
+    display: none;
+}
+
+.t-small_only {
+    display: block !important;
+
+    @include breakpoint($medium) {
+        display: none !important;
+    }
+}
+
+.t-inline_small_only {
+    display: inline-block !important;
+
+    @include breakpoint($medium) {
+        display: none !important;
+    }
+}
+
+.t-medium_and_down {
+    display: block !important;
+
+    @include breakpoint($large) {
+        display: none !important;
+    }
+}
+
+.t-inline_medium_and_down {
+    display: inline-block !important;
+
+    @include breakpoint($large) {
+        display: none !important;
+    }
+}
+
+.t-medium_and_up {
+    display: none !important;
+
+    @include breakpoint($medium) {
+        display: block !important;
+    }
+}
+
+.t-inline_medium_and_up {
+    display: none !important;
+
+    @include breakpoint($medium) {
+        display: inline-block !important;
+    }
+}
+
+.t-large_only {
+    display: none !important;
+
+    @include breakpoint($large) {
+        display: block !important;
+    }
+}
+
+.t-inline_large_only {
+    display: none !important;
+
+    @include breakpoint($large) {
+        display: inline-block !important;
+    }
+}

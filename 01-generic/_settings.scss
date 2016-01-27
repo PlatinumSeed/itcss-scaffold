@@ -1,0 +1,59 @@
+// SET UP YOUR VARIABLES IN THIS FILE
+
+
+// Colours
+// ------------------------------------------------------------
+
+// Define your main colour palette
+$primary							: #3d3d3d;
+$secondary							: #000000;
+$tertiary                           : #e5e5e5;
+$error                              : #c61414;
+$success                            : #278c2e;
+
+// Breakpoint Widths
+// ------------------------------------------------------------
+
+$large                              : 1000px;
+$medium                             : 640px;
+$small                              : 320px;
+
+/* ::Susy Settings  */
+/* ----------------------------------------------------------- */
+$susy: (
+    columns: 12,
+    container: 1180px,
+    gutters: 40px/60px,
+    math: fluid,
+    output: float,
+    gutter-position: after,
+    global-box-sizing: border-box
+);
+
+$narrow: (
+    columns: 10,
+    container: 970px,
+    gutters: 40px/60px,
+    math: fluid,
+    output: float,
+    gutter-position: after,
+    global-box-sizing: border-box
+);
+
+// Fonts, measure, leading and typefaces
+// ------------------------------------------------------------
+
+$base-font-size						: 16px;
+$medium-font                        : 500;
+$hamburger-width                    : 46px;
+$hamburger-height                   : 28px;
+$hamburger-lineheight               : 2px;
+$hamburger-color                    : white;
+
+/* ::Animation variables  */
+/* ----------------------------------------------------------- */
+$transition-duration                : 0.2s;
+
+/* ::Layout  */
+/* ----------------------------------------------------------- */
+$container_padding                  : 7%
